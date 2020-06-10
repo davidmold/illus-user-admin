@@ -1,32 +1,69 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <router-view />
+    <div class="message-lightbox" v-show="$store.state.messagebox.show" v-on:click="$hideMessage">
+      <div class="messagebox" v-on:click.stop>
+        <div class="message-pad">
+          <div><img src="/admin/img/illustrationx.svg" style="width:200px" /></div>
+          <div>
+            {{ $store.state.messagebox.message }}
+          </div>
+          <div>
+            <small-button v-on:click="$hideMessage">OK</small-button>
+          </div>
+        </div>
+      </div>
     </div>
-    <router-view/>
   </div>
 </template>
+<script>
+import '@/css/x.css'
+import '@/css/video.css'
+import '@/css/admin.css'
 
+export default {
+  created () {
+    console.log('route', this.$route.path)
+  }
+}
+</script>
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.message-lightbox{
+  position:fixed;
+  z-index:500;
+  width:100vw;
+  height:100vh;
+  top:0;
+  left:0;
+  background-color:rgba(0,0,0,0.4);
+  cursor:pointer;
+}
+.messagebox{
+  position:fixed;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  z-index:510;
+  background-color:#fff;
+  cursor:auto;
+}
+.message-pad{
+  padding:20px;
 }
 
-#nav {
-  padding: 30px;
+.message-pad div{
+  padding:12px;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.loggedArtist{
+  background-color:#ce0e2d;
+  padding:3px 8px;
+  color:#fff;
+  display:inline-block;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.padded{
+  font-size:14px;
+  line-height:19px;
 }
 </style>

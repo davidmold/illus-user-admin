@@ -1,0 +1,108 @@
+@-webkit-keyframes play20 {
+  from { background-position:    0 0; }
+      to { background-position: 0 -2375px; }
+}
+
+@-webkit-keyframes playanim20 {
+  from { background-position:    0 0; }
+      to { background-position: 0 -2774px; }
+}
+
+@keyframes play20 {
+  from { background-position:    0 0; }
+      to { background-position: 0 -2375px; }
+}
+
+@keyframes playanim20 {
+  from { background-position:    0 0; }
+      to { background-position: 0 -2774px; }
+}
+
+.vidpanel {
+  display:none;
+  border:1px solid #dddddd;
+  padding:16px;
+}
+
+.video 
+{
+  padding-left:37px;
+  padding-top:8px;
+  padding-bottom:6px;
+  padding-right:8px;
+  cursor:pointer;
+  display:inline;
+  margin-right:10px;
+  color:#22A6BF;
+  border:1px solid #eeeeee;
+  background-color:White;
+  background-image:url(/ximg/movie.png);
+  background-position:0px 0px;
+  background-repeat:no-repeat;
+  position:relative;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.video .new
+{
+  position:absolute;
+  left:-10px;
+  top:-8px;
+  width:32px;
+  height:33px;
+  z-index:20;
+  background-image:url(/ximg/new.png);
+  background-repeat:no-repeat;
+}
+
+div.linkbit {
+margin-top:0px;
+margin-bottom: 4px;
+}
+
+div.breaker {
+width:780px; height:1px;background-color:#aaaaaa;margin-bottom:12px;
+}
+
+h2 {
+margin-top:0px;margin-bottom:20px;
+}
+
+.tvDinner
+{
+  width:224px;
+  height:280px;
+  float:left;
+  padding-right:22px;
+  margin-bottom:20px;
+  padding-bottom:14px;
+  border-bottom:1px solid #ccc;
+  cursor:pointer;
+}
+
+.tvDinner .tnail
+{
+  background-color:#F7F3EA;
+  height:134px;
+  position:relative;
+}
+
+.tvDinner .tnail.anim{
+  height:146px;
+  width:194px;
+  border:1px solid #ddd;
+}
+
+.tvDinner .tnail img
+{
+  /*
+  width:224px;
+  height:125px;
+  */
+}
+
+
+
+
+

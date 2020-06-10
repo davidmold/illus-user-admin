@@ -1,0 +1,148 @@
+body{
+  font-family: 'Gibbs', sans-serif;
+}
+
+div.linkbit {
+	margin-top:0px;
+	margin-bottom: 4px;
+}
+div.breaker {
+	width:780px; height:1px;background-color:#aaaaaa;margin-bottom:12px;
+}
+h2 {
+	margin-top:0px;margin-bottom:20px;
+}
+
+
+
+.agentpopup{
+    background-color:#fff;
+    position:fixed;
+    z-index:500;
+    right:5%;
+    top:10%;
+    
+    border:8px solid #666;
+    padding:25px;
+    width:240px;
+    min-height:70px;
+    box-shadow:8px 8px 8px rgba(0,0,0,0.3);
+    display:none;
+}
+
+.agentpopup .agent-name{
+    font-size:16px;
+    margin-top:12px;
+}
+
+.agentpopup .agent-name a{
+    font-size:14px;
+    font-weight:normal;
+}
+
+
+.helprot270 {
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+    -moz-transform-origin: left top 0;
+    -ms-transform-origin: left top 0;
+    -o-transform-origin: left top 0;
+    -webkit-transform-origin: left top 0;
+    transform-origin: left top 0;
+    color: #fff;
+    width: 100px;
+    position: absolute;
+    bottom: 30px;
+    left: 14px;
+    font-family: "Trebuchet MS",Helvetica,sans-serif;
+    font-size: 18px;
+}
+
+.helpwallhugger{
+    background-color: rgba(0,0,0,.2);
+    color: #fff;
+    position: fixed;
+    right: 0;
+    top: calc(50% - 60px);
+    width: 53px;
+    height: 120px;
+    z-index: 220;
+    cursor: pointer;
+    display:block;
+}
+
+.helpwallhugger:hover{
+    background-color:rgba(0,0,0,0.7);
+}
+
+.rhPlus.hlp{
+    font-size:12px;
+}
+
+.ap-signoff{
+    display:flex;
+}
+
+#right h1{
+    margin:28px 0;
+}
+
+#right h2{
+    margin:28px 0 16px 0;
+}
+
+#right{
+    font-size:16px;
+    text-align: left;
+}
+
+#right tr{
+    vertical-align:top;
+}
+
+
+
+#right select{
+    font-size:16px;
+    padding:3px 6px;
+}
+
+#right .userImageBlock select{
+    font-size:12px;
+    padding:2px;
+}
+
+.cbox{
+    background-image:url(/ximg/closebox.png);
+    border:0;
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:8px;
+    right:8px;
+    background-size:contain;
+    background-repeat:no-repeat;
+    cursor:pointer;
+}
+
+.header{
+    margin-left:30px;
+    margin-right:10px;
+}
+
+.logo{
+    top:15px;
+}
+
+input[type="text"], textarea{
+  font-size:14px;
+  padding:7px;
+  font-family: Gibbs, sans-serif;
+}
+
+textarea{
+  line-height:21px;
+}
