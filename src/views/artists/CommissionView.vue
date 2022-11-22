@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="explain">
-      <div><h1>Your commissions</h1></div>
+      <div>
+        <h1>Your commissions</h1>
+        <p>Please see the <router-link to="faqs">Frequently Asked Questions regarding Artist payments</router-link></p>
+      </div>
       <div v-show="mode === k.SELFBILLS" class="flexplain">
         <div class="asterisk">*</div>
         <div class="exp-text">

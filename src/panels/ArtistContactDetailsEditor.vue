@@ -1,37 +1,6 @@
 <template>
-  <div>
-    <table>
-      <tr>
-        <td>Email Address</td>
-        <td><input type="text" v-model="contact.Email" size="50" /></td>
-      </tr>
-      <tr>
-        <td>Alternate Email</td>
-        <td><input type="text" v-model="contact.Email2" size="50" /></td>
-      </tr>
-      <tr>
-        <td>Telephone</td>
-        <td><input type="text" v-model="contact.Tel" /></td>
-      </tr>
-      <tr>
-        <td>Cell/Mobile</td>
-        <td><input type="text" v-model="contact.Mobile" /></td>
-      </tr>
-      <tr>
-        <td>Alternate Telephone</td>
-        <td><input type="text" v-model="contact.Tel2" /></td>
-      </tr>
-      <tr>
-        <td>Emergency Telephone</td>
-        <td><input type="text" v-model="contact.Emergency" /></td>
-      </tr>
-      <tr>
-        <td>Fax</td>
-        <td><input type="text" v-model="contact.Fax" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"> &nbsp; </td>
-      </tr>
+  <div style="max-width:700px">
+    <table class="padded">
       <tr>
         <td>First name</td>
         <td><input type="text" v-model="contact.Fname" /></td>
@@ -41,7 +10,28 @@
         <td><input type="text" v-model="contact.Lname" /></td>
       </tr>
       <tr>
-        <td colspan="2"> &nbsp; </td>
+        <td colspan="2"> <b>Main Address</b> </td>
+      </tr>
+      <tr>
+        <td>Email Address</td>
+        <td><input type="text" v-model="contact.Email" size="60" /></td>
+      </tr>
+      <tr>
+        <td>Telephone</td>
+        <td><input type="text" v-model="contact.Tel"  size="60" /></td>
+      </tr>
+      <tr>
+        <td>Cell/Mobile</td>
+        <td><input type="text" v-model="contact.Mobile" size="60" /></td>
+      </tr>
+
+      <tr>
+        <td>Emergency Telephone</td>
+        <td><input type="text" v-model="contact.Emergency" size="60" /></td>
+      </tr>
+      <tr>
+        <td>Fax</td>
+        <td><input type="text" v-model="contact.Fax" /></td>
       </tr>
       <tr>
         <td rowspan="3">Address</td>
@@ -51,7 +41,7 @@
         <td><input type="text" v-model="contact.Address2" size="60"  /></td>
       </tr>
       <tr>
-        <td><input type="text" v-model="contact.Address3" /></td>
+        <td><input type="text" v-model="contact.Address3" size="60" /></td>
       </tr>
       <tr>
         <td>Zip/Postcode</td>
@@ -62,17 +52,25 @@
         <td><country-select v-model="contact.Country" /></td>
       </tr>
       <tr>
-        <td colspan="2"> &nbsp; </td>
+        <td colspan="2"> <b>Alternate Address</b> </td>
       </tr>
       <tr>
-        <td rowspan="3">Alternate Address</td>
+        <td>Email</td>
+        <td><input type="text" v-model="contact.Email2" size="60" /></td>
+      </tr>
+      <tr>
+        <td>Telephone</td>
+        <td><input type="text" v-model="contact.Tel2" size="60" /></td>
+      </tr>
+      <tr>
+        <td rowspan="3">Address</td>
         <td><input type="text" v-model="contact.Baddress1" size="60"  /></td>
       </tr>
       <tr>
         <td><input type="text" v-model="contact.Baddress2" size="60"  /></td>
       </tr>
       <tr>
-        <td><input type="text" v-model="contact.Baddress3" /></td>
+        <td><input type="text" v-model="contact.Baddress3"  size="60" /></td>
       </tr>
       <tr>
         <td>Zip/Postcode</td>

@@ -65,7 +65,7 @@ export default {
   methods: {
     async loadData () {
       try {
-        let res = await this.$apix.post('GetArtistProfile', { lang: this.lang })
+        const res = await this.$apix.post('GetArtistProfile', { lang: this.lang })
         if (res) {
           this.details = res.data.d
         }

@@ -14,6 +14,7 @@
         </div>
       </div>
     </div>
+    <div class="ver-fix">{{ version }}</div>
   </div>
 </template>
 <script>
@@ -22,12 +23,27 @@ import '@/css/video.css'
 import '@/css/admin.css'
 
 export default {
+  data () {
+    return {
+      version: process.env.VUE_APP_VERSION
+    }
+  },
   created () {
     console.log('route', this.$route.path)
   }
 }
 </script>
 <style>
+.ver-fix{
+  position:fixed;
+  bottom:10px;
+  right:10px;
+  background-color:#ce0e2d;
+  color:#fff;
+  z-index:100;
+  padding:5px 10px;
+  border-radius:50%;
+}
 .message-lightbox{
   position:fixed;
   z-index:500;

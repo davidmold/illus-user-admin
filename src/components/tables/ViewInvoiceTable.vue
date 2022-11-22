@@ -5,6 +5,7 @@
       <th>Invoice Date</th>
       <th style="width:50%">Subject</th>
       <th>Client</th>
+      <th>Amount</th>
       <th>*Expect Payment</th>
       <th>
           Selfbill
@@ -15,7 +16,9 @@
       <td>{{ $du.formatCsDate(line.InvoiceDate) }}</td>
       <td>{{ line.Subject }}</td>
       <td>{{ line.Company }}</td>
+      <td style="text-align:right">{{ formatAmount(line.ArtistCurrency, line.ArtistAmt) }}</td>
       <td>{{ getExpectPayment(line.InvoiceDate )}}</td>
+
       <td>
         <a href="#" v-on:click.prevent="downloadPdf(line)">
           <img src="/img/msb/pdficon_small.gif" alt="download pdf" title="download pdf" width="17" height="17" border="0" />
@@ -26,11 +29,16 @@
 </template>
 
 <script>
+import currencies from '@/data/currencies.js'
+
 export default {
   props: {
     lines: Array
   },
   methods: {
+    formatAmount (cur, amt) {
+      return currencies[cur] + Number(amt).toFixed(2)
+    },
     downloadPdf (line) {
       this.$emit('download', line)
     },
