@@ -100,7 +100,8 @@ export default {
   data () {
     return {
       contact: {},
-      loading: false
+      loading: false,
+      orig: {}
     }
   },
   created () {
@@ -129,10 +130,27 @@ export default {
         let res = await this.$apix.post('GetArtistContact', {})
         if (res) {
           this.contact = res.data.d
+          this.orig = { ...this.contact }
         }
       } catch (err) {
         console.log(err)
       }
+    },
+    changedDetails () {
+      const keys = Object.keys(this.orig)
+      const changed = []
+      for (const key of keys) {
+        if (this.orig[key] !== this.contact[key]) {
+          changed.push(this.fixName(key) + ' changed from ' + this.orig[key] + ' to ' + this.contact[key])
+        }
+      }
+      return changed
+    },
+    fixName (aname) {
+      if (aname.startsWith('B')) {
+        aname = aname.replace('B', 'Alternate ')
+      }
+      return aname
     },
     async saveDetails () {
       let res = null
@@ -140,8 +158,11 @@ export default {
         this.loading = true
         if (this.admin) {
           res = await this.$apix.post('AdminSaveArtistContact', { contact: this.contact })
+          this.orig = { ...this.contact }
         } else {
-          res = await this.$apix.post('SaveArtistContact', { contact: this.contact })
+          const changed = this.changedDetails()
+          res = await this.$apix.post('SaveArtistContact', { contact: this.contact, changed: changed })
+          this.orig = { ...this.contact }
         }
         this.loading = false
         if (res) {
