@@ -35,13 +35,6 @@ img
 	display:none;
 }
 
-#content 
-{
-    position:relative;
-	max-width: 1400px;
-	margin-left:55px;
-    margin-top:100px;
-}
 
 #left
 {
@@ -53,15 +46,16 @@ img
 }
 
 #left ul {
-	margin:0;
-	padding: 0;
-	list-style:none;
-	top:37px;
+    margin:0;
+    padding: 0;
+    list-style:none;
+    top:37px;
   left:0;
   position:absolute;
   background-color:#e74d58;
   color:#fff;
-  width:200px;
+  max-width:400px;
+  min-width:200px;
 
 }
 
@@ -1233,10 +1227,6 @@ input[type=text]:focus, textarea:focus, select:focus
     display: table;
 }
 
-.snav-holder{
-    background-color:#e74d58;
-}
-
 .openarrow{
     width:43px;
     height:29px;
@@ -1276,10 +1266,6 @@ input[type=text]:focus, textarea:focus, select:focus
     box-shadow:2px 2px 5px rgba(0,0,0,0.4);
 }
 
-.header{
-    margin-left:20px;
-
-}
 
 .logo{
     top:16px;

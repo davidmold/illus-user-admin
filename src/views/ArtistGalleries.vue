@@ -26,7 +26,11 @@
 import ImagePanel from '../components/ImagePanel.vue'
 import DragDropper from '../components/DragDropper.vue'
 import ModalDialog from '../components/ModalDialog.vue'
+
 export default {
+  props: {
+    galid: Number
+  },
   components: {
     ImagePanel,
     DragDropper,
@@ -141,6 +145,11 @@ export default {
   watch: {
     id () {
       this.loadData()
+    },
+    galid () {
+      if (this.galid) {
+        this.setGallery(this.galid)
+      }
     }
   }
 }

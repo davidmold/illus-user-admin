@@ -141,10 +141,16 @@ export default {
       const changed = []
       for (const key of keys) {
         if (this.orig[key] !== this.contact[key]) {
-          changed.push(this.fixName(key) + ' changed from ' + this.orig[key] + ' to ' + this.contact[key])
+          changed.push(`<b>${this.fixName(key)}</b> changed from <b>${this.getBlank(this.orig[key])}</b> to <b>${this.getBlank(this.contact[key])}</b>`)
         }
       }
       return changed
+    },
+    getBlank (aword) {
+      if (!aword) {
+        return '[blank]'
+      }
+      return aword
     },
     fixName (aname) {
       if (aname.startsWith('B')) {

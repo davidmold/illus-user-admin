@@ -136,43 +136,32 @@ h6{
 }
 
 @media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
-
  h1
  {
      font-size:24px;
  }
-
- 
 }
 
 .header-holder
 {
   background-color:#fff;
-  background-repeat:repeat-x;
-  
-  position:fixed;
-  z-index:250;
-  top:0;
-  left:0;
-  width:100%;
-  box-sizing:border-box;
 }
 
 .header
 {
   height:72px;
   position:relative;
-  width:1061px;
+  max-width:1200px;
+  width:100%;
   margin:0 auto;
+  box-sizing:border-box;
 }
 
 .snav-holder{
+  position:sticky;
+  top:0;
   height:37px;
-  background-color:#fff;
-  
-  position:relative;
- 
-  z-index:100;
+  background-color:#e74d58;
   width:100%;
 }
 
@@ -318,8 +307,8 @@ h6{
 
 .supernav
 {
-  width:1061px;
-  /*background-color:#E74D58;*/
+  max-width: 1200px;
+  width:100%;
   color:#fff;
   position:relative;
   height:37px;

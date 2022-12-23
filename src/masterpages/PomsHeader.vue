@@ -1,7 +1,7 @@
 <template>
   <div class="header-holder">
     <div class="snav-holder">
-      <div class="supernav" id="left" style="position:absolute">
+      <div class="supernav" id="left">
         <div class="linkbit" id="as0" style="width:270px;">
           <base-chooser :options="artists" v-model="selectedArtist"></base-chooser>
           <div class="openarrow" id="dropper" v-on:click.stop="openMenu('artist')"></div>

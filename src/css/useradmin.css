@@ -27,7 +27,6 @@ h2 {
     width:240px;
     min-height:70px;
     box-shadow:8px 8px 8px rgba(0,0,0,0.3);
-    display:none;
 }
 
 .agentpopup .agent-name{
@@ -126,11 +125,6 @@ h2 {
     background-size:contain;
     background-repeat:no-repeat;
     cursor:pointer;
-}
-
-.header{
-    margin-left:30px;
-    margin-right:10px;
 }
 
 .logo{

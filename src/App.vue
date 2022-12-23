@@ -14,7 +14,6 @@
         </div>
       </div>
     </div>
-    <div class="ver-fix">{{ version }}</div>
   </div>
 </template>
 <script>
@@ -34,16 +33,12 @@ export default {
 }
 </script>
 <style>
-.ver-fix{
-  position:fixed;
-  bottom:10px;
-  right:10px;
-  background-color:#ce0e2d;
-  color:#fff;
-  z-index:100;
-  padding:5px 10px;
-  border-radius:50%;
+
+#app {
+  max-width:100%;
+  box-sizing: border-box;
 }
+
 .message-lightbox{
   position:fixed;
   z-index:500;

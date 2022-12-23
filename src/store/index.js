@@ -21,9 +21,13 @@ export default new Vuex.Store({
     },
     poms: {
       selectedArtist: {}
-    }
+    },
+    pageTitle: ''
   },
   mutations: {
+    setPageTitle (state, val) {
+      state.pageTitle = val
+    },
     setMessage (state, val) {
       state.messagebox.message = val
     },
