@@ -4,11 +4,12 @@
         <user-admin-menu menutitle="portfolio" :selectedMenu="selectedMenu" @select="handleSelectMenu">
           <li class="home"><router-link to="/admin/user_admin/vue/edit-text">portfolio details</router-link></li>
           <li class="home"><router-link to="/admin/user_admin/vue/profile-images">profile images</router-link></li>
-          <li class="animation"><router-link to="/admin/user_admin/vue/videos">portfolio TV</router-link></li>
           <li class="photos"><router-link to="/admin/user_admin/vue/order-images">illustration portfolio</router-link></li>
           <li class="photos"><router-link to="/admin/user_admin/vue/sort-images"> - sort portfolio</router-link></li>
           <li class="animation"><router-link to="/admin/user_admin/vue/order-animation">animation portfolio</router-link></li>
-          <li class="photos"><router-link to="/admin/user_admin/vue/style-gallery">style galleries</router-link></li>
+          <li class="animation"><router-link to="/admin/user_admin/vue/sort-animations">- sort animations</router-link></li>
+          <li class="photos"><router-link to="/admin/user_admin/vue/style-galleries">style galleries</router-link></li>
+          <li class="animation"><router-link to="/admin/user_admin/vue/videos">videos</router-link></li>
           <li class="user"><a href="/admin/user_admin/Logout.aspx">log out</a></li>
         </user-admin-menu>
         <user-admin-menu menutitle="manage" :selectedMenu="selectedMenu" @select="handleSelectMenu">
@@ -39,7 +40,7 @@
                   <li><b><router-link to="/admin/user_admin/vue/portfolio-stats">portfolio stats</router-link></b>
             measures clicks on your portfolio images</li>
                   <li><b><router-link to="/admin/user_admin/vue/all-page-stats">A-Z page stats</router-link></b>
-            measures clicks on your images on the <a href="https://www.illustrationx.com/artists" target="_blank">All Artists</a> page</li>
+            measures clicks on your images on the All Artists page</li>
         </user-admin-menu>
         <user-admin-menu menutitle="help" :selectedMenu="selectedMenu" @select="handleSelectMenu">
           <li class="email"><router-link to="/admin/user_admin/vue/faqs">faqs</router-link></li>
@@ -77,13 +78,38 @@ export default {
       artistName: ''
     }
   },
+  mounted () {
+    let all = this.$el.querySelectorAll('li')
+    console.log('all', all)
+    all.forEach(el => {
+      let a = el.querySelector('a')
+      if (a) {
+        if (a.getAttribute('href')) {
+          let href = a.getAttribute('href')
+          if (href) {
+            el.addEventListener('click', (e) => {
+              e.stopPropagation()
+              try {
+                this.$router.push(href)
+              } catch (err) {
+                console.log('already at', href)
+              }
+            })
+          }
+        }
+      }
+    })
+  },
   created () {
     this.loadData()
   },
   methods: {
     async loadData () {
-      let res = await this.$apix.post('GetLoggedArtist')
-      this.artistName = res.data.d
+      let res = await this.$post('GetLoggedArtist')
+      if (res === 'Not logged in') {
+        window.location = '/admin/user_admin/login/'
+      }
+      this.artistName = res
     },
     handleSelectMenu (menuname) {
       this.selectedMenu = menuname
@@ -102,9 +128,8 @@ export default {
 .agent-menu-jac {
   padding:20px;
   width:300px;
+  background-color:#fff;
+  color:#000;
 }
 
-.agent-menu-jac a{
-  color:#fff;
-}
 </style>

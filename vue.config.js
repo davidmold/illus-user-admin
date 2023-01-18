@@ -5,7 +5,7 @@ module.exports = {
     disableHostCheck: true
   },
   filenameHashing: true,
-  publicPath: process.env.VUE_APP_PUBLIC_PATH,
+  publicPath: '/admin/user_admin/vue/',
   chainWebpack: config => {
     if (process.env.NODE_ENV === 'production') {
       config.plugin('html').tap(args => {

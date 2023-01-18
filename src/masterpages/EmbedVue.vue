@@ -28,6 +28,7 @@ export default {
   margin-left:auto;
   margin-right:auto;
   padding:0 20px;
+  padding-bottom:100px;
   box-sizing: border-box;
 }
 </style>

@@ -8,6 +8,11 @@ import LangSelect from './components/LangSelect.vue'
 import DateUtils from './utils/date-utils.js'
 import k from './constants.js'
 
+const post = async function (url, data) {
+  let res = await apix.post(url, data)
+  return res.data.d
+}
+
 Vue.config.productionTip = false
 Vue.prototype.$apix = apix
 Vue.prototype.$du = DateUtils
@@ -21,6 +26,7 @@ Vue.prototype.$showMessage = (ms) => {
 Vue.prototype.$hideMessage = () => {
   store.commit('showMessage', false)
 }
+Vue.prototype.$post = post
 
 new Vue({
   router,

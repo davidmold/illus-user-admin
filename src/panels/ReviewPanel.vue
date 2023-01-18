@@ -4,7 +4,7 @@
     <table class="padded">
       <tr class="dark">
         <td>Review by:</td>
-        <td>{{ item.Agent.FirstName + ' ' + item.Agent.LastName }}</td>
+        <td>{{ item.Agent.FormattedName }}</td>
       </tr>
       <tr>
         <td>Notes:</td>

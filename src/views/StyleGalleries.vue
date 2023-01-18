@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Change the order or remove images from your Style Gallery</h1>
     <p>
       Want to appear in different galleries? Select your <router-link to="/admin/user_admin/vue/selected-galleries">style galleries</router-link>.
     </p>
@@ -25,6 +24,9 @@ export default {
   },
   created () {
     this.loadData()
+  },
+  mounted () {
+    this.$store.commit('setPageTitle', 'Change the order or remove images from your Style Gallery')
   },
   data () {
     return {

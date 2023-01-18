@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <router-view />
+    <div>
+      <user-admin></user-admin>
+      <main-menu></main-menu>
+      <div class="artist-view">
+        <router-view />
+      </div>
+    </div>
     <div class="message-lightbox" v-show="$store.state.messagebox.show" v-on:click="$hideMessage">
       <div class="messagebox" v-on:click.stop>
         <div class="message-pad">
@@ -20,8 +26,14 @@
 import '@/css/x.css'
 import '@/css/video.css'
 import '@/css/admin.css'
+import UserAdmin from './masterpages/UserAdmin.vue'
+import MainMenu from './components/MainMenu.vue'
 
 export default {
+  components: {
+    UserAdmin,
+    MainMenu
+  },
   data () {
     return {
       version: process.env.VUE_APP_VERSION
@@ -41,7 +53,7 @@ export default {
 
 .message-lightbox{
   position:fixed;
-  z-index:500;
+  z-index:1020;
   width:100vw;
   height:100vh;
   top:0;
@@ -54,7 +66,7 @@ export default {
   top: 50%;
   left:50%;
   transform: translate(-50%,-50%);
-  z-index:510;
+  z-index:1030;
   background-color:#fff;
   cursor:auto;
 }
@@ -76,5 +88,16 @@ export default {
 .padded{
   font-size:14px;
   line-height:19px;
+}
+
+.artist-view {
+  max-width:1200px;
+  width:100%;
+  margin-top:40px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:0 20px;
+  padding-bottom:100px;
+  box-sizing: border-box;
 }
 </style>

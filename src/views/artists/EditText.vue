@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Portfolio Page Data</h1>
     <div>
       Language / Region
       <lang-select v-model="lang"></lang-select>
@@ -58,6 +57,9 @@ export default {
       details: {},
       loading: false
     }
+  },
+  mounted () {
+    this.$store.commit('setPageTitle', 'Portfolio details')
   },
   created () {
     this.loadData()

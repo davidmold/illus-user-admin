@@ -163,6 +163,7 @@ h6{
   height:37px;
   background-color:#e74d58;
   width:100%;
+  z-index:1000;
 }
 
 .cookie-popup{
@@ -426,11 +427,6 @@ z-index:-1;
   margin-left:57px;
 }
 
-.navitem.sel .navlink:hover
-{
-  /*text-decoration:underline;*/
-  
-}
 
 .navlink{
   color:#b7bfb7;
@@ -1279,12 +1275,6 @@ h3
  
 }
 
-
-.tabs.line
-{
-  /*border-bottom:1px solid #dddddd;
-  width:960px;*/
-}
 
 .tab
 {
@@ -3733,10 +3723,6 @@ div.post-body
   color:#dd0c2c;
 }
 
-.post-body img
-{
-  
-}
 
 h2.date-header
 {
@@ -4586,10 +4572,8 @@ a.nostyle:hover{
 .tweet-scroll .tweet
 {
   display:block;
-  vertical-align:top;
   width:238px;
   padding-right:10px;
-  
   white-space:normal;
   line-height:18px;
   
@@ -4598,7 +4582,6 @@ a.nostyle:hover{
 .tweet-time
 {
   font-size:13px;
-  
   font-weight:bold;
   line-height:24px;
 }
@@ -5012,11 +4995,6 @@ a.nostyle:hover{
   position:relative;
 }
 
-.subscribe-area
-{
-  
- 
-}
 
 .search-area
 {
@@ -5187,11 +5165,6 @@ input[type="text"]:focus input[type="password"]:focus, textarea:focus {
   cursor:pointer;
 }
 
-.month-sub
-{
-  
-  
-}
 
 .month-sub.sel
 {
@@ -5818,10 +5791,6 @@ input[type="text"]:focus input[type="password"]:focus, textarea:focus {
   
 }
 
-.page-holder
-{
-  
-}
 
 
 
@@ -5885,7 +5854,6 @@ input[type="text"]:focus input[type="password"]:focus, textarea:focus {
   color: #fff;
   border-radius: 3px;
   text-align: center;
-  vertical-align: central;
   font-family: 'Trebuchet MS';
   font-size: 18px;
   margin-bottom: 11px;
@@ -7212,11 +7180,6 @@ top:86px;
   opacity:0.65;
 }
 
-.vidone{
-
-
-
-}
 
 .vidone:hover, .vidone.sel, .vidnext:hover, .vidprev:hover{
   opacity:1.0;

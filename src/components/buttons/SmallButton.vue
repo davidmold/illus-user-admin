@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-button" v-on:click="handleClick" :class="{ large : large, sel: (sel || loading), brown: brown, lower: lower }">
+  <div class="nav-button" v-on:click="handleClick" :class="{ large : large, sel: (sel || loading), brown: brown, lower: lower, small: small}">
     <div :class="{inviz: loading}" class="btn-slot"><slot></slot></div>
     <div class="loader-icon" v-show="loading" />
   </div>
@@ -12,7 +12,8 @@ export default {
     sel: Boolean,
     loading: Boolean,
     brown: Boolean,
-    lower: Boolean
+    lower: Boolean,
+    small: Boolean
   },
   methods: {
     handleClick: function () {
@@ -32,7 +33,7 @@ export default {
     color:#fff;
     font-size:14px;
     line-height:14px;
-    padding:5px 15px!important;
+    padding:5px 15px;
     margin-right:3px;
     cursor:pointer;
     transition:all 0.15s ease;
@@ -65,6 +66,12 @@ export default {
     font-size:17px;
     line-height:20px;
     margin-left:5px;
+  }
+
+  .nav-button.small {
+    font-size:12px;
+    line-height:12px;
+    padding:3px 6px!important;
   }
 
   .nav-button.large:first-child{

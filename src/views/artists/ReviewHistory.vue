@@ -10,7 +10,7 @@
       </tr>
       <tr v-for="item in items" :key="item.Id" >
         <td>{{ $du.formatCsDate(item.ReportDate )}}</td>
-        <td>{{ item.Agent.FirstName + ' ' + item.Agent.LastName }}</td>
+        <td>{{ item.Agent.FormattedName }}</td>
         <td>
           <a href="#" v-on:click.prevent="handleShowDetail(item)"><img src="/admin/img/page_go.png" class="icon" alt="View"></a>
         </td>
@@ -75,7 +75,7 @@ export default {
 
 <style>
 .detail-message{
-  z-index:600;
+  z-index:1020;
   background-color:#fff;
   padding:40px;
   border-radius:8px;
