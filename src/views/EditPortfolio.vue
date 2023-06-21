@@ -1,13 +1,12 @@
 <template>
   <div>
     <div class="flex-button">
-      <div id="publish" class="publish-button" onclick="publishChanges()">
+      <div id="publish" class="publish-button" @click="publishChanges">
         <div class="publish-text">Publish to IllustrationX</div>
         <div class="loader-icon"></div>
       </div>
       <div style="margin-left:10px;padding:8px 0">Publish status: {{ publishStatus }}</div>
     </div>
-
     <div class="twocol">
       <p>
         Press the big red "Publish to IllustrationX" button above to push your updated images to the live website once you have finished
@@ -100,7 +99,7 @@ export default {
       }
     },
     async loadData () {
-      this.artist = await this.$post('GetLoggedArtistObject')
+      this.artist = await this.$store.dispatch('fetchLoggedArtist')
       await this.reloadImages()
       if (!this.startedFetching) {
         window.setInterval(this.checkProgress, 15000)
@@ -116,10 +115,16 @@ export default {
       await this.reloadImages()
     },
     async publishChanges () {
-      this.loading = true
-      await this.$post('IllusxCliUser', { args: 'upload ' + this.artist.PortfolioName })
-      this.loading = false
-      this.$showMessage('Your changes will be live when the publish status changes to "complete". You will need to reload the illustrationx web site to view them.')
+      try {
+        this.loading = true
+        await this.$post('IllusxCliUser', { args: 'upload ' + this.artist.PortfolioName })
+        this.loading = false
+        this.$showMessage('Your changes will be live when the publish status changes to "complete". You will need to reload the illustrationx web site to view them.')
+      } catch (err) {
+        this.loading = false
+        console.log(err)
+        this.$showMessage(`There was a problem publishing the images, please let us know and we will fix it. Don't worry, your images will automatically publish at the end of each 24 hour period.`)
+      }
     },
     async checkProgress () {
       const res = await this.$post('GetPortfolioUpdateStatus', { artistId: this.artist.Id })
@@ -161,7 +166,11 @@ export default {
       this.showreplace = true
     },
     async reloadImages () {
-      this.images = await this.$post('GetUserPortfolioImages', { anim: this.anim })
+      let combi = false
+      if (this.artist) {
+        combi = this.artist.VideoInPortfolio && !this.anim
+      }
+      this.images = await this.$post('GetUserPortfolioImages', { anim: this.anim, combined: combi })
     }
   },
   watch: {

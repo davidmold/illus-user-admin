@@ -50,7 +50,8 @@
       "camelcase": "off",
       "eqeqeq": "off",
       "no-eval": "off",
-      "prefer-const": "off"
+      "prefer-const": "off",
+      "quotes": [ "error", "single", { "allowTemplateLiterals": true }]
     },
     "parserOptions": {
       "parser": "babel-eslint"

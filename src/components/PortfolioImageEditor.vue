@@ -7,7 +7,7 @@
       <div class="user-data" v-if="image">
         <div style="margin-bottom:4px;word-break: break-all;"><b>{{  image.Location }}</b> <span v-html="animfile"></span></div>
         <div>
-          <textarea class="user-desc" cols="20" rows="3" placeholder="Description" v-model="image.Description"
+          <textarea class="user-desc" cols="20" rows="3" placeholder="Description" v-model="image.Description" maxlength="500"
             @blur="saveDesc"
             autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
         </div>

@@ -24,7 +24,10 @@
         <td>Cell/Mobile</td>
         <td><input type="text" v-model="contact.Mobile" size="60" /></td>
       </tr>
-
+      <tr>
+        <td>SMS</td>
+        <td><input type="checkbox" v-model="sms"> I agree to receive SMS messages from IllustrationX on this number</td>
+      </tr>
       <tr>
         <td>Emergency Telephone</td>
         <td><input type="text" v-model="contact.Emergency" size="60" /></td>
@@ -101,7 +104,8 @@ export default {
     return {
       contact: {},
       loading: false,
-      orig: {}
+      orig: {},
+      sms: true
     }
   },
   created () {

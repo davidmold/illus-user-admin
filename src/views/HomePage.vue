@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     async loadData () {
-      this.artist = await this.$post('GetLoggedArtistObject')
+      this.artist = await this.$store.dispatch('fetchLoggedArtist')
     }
   }
 }

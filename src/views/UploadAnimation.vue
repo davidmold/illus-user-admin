@@ -28,7 +28,8 @@
       </tr>
       <tr>
         <td><b>Description</b></td>
-        <td><textarea v-model="description" rows="2" columns="60" class="wtext"></textarea></td>
+        <td><textarea v-model="description" rows="2" columns="60" class="wtext" maxlength="500"></textarea><br>
+          max 500 characters</td>
       </tr>
       <tr>
         <td><b>Style galleries</b></td>

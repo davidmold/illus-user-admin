@@ -7,7 +7,9 @@
           <li class="photos"><router-link to="/admin/user_admin/vue/order-images">illustration portfolio</router-link></li>
           <li class="photos"><router-link to="/admin/user_admin/vue/sort-images"> - sort portfolio</router-link></li>
           <li class="animation"><router-link to="/admin/user_admin/vue/order-animation">animation portfolio</router-link></li>
-          <li class="animation"><router-link to="/admin/user_admin/vue/sort-animations">- sort animations</router-link></li>
+          <template v-if="artist && artist.IsAnimator">
+            <li class="animation"><router-link to="/admin/user_admin/vue/sort-animations">- sort animations</router-link></li>
+          </template>
           <li class="photos"><router-link to="/admin/user_admin/vue/style-galleries">style galleries</router-link></li>
           <li class="animation"><router-link to="/admin/user_admin/vue/videos">videos</router-link></li>
           <li class="user"><a href="/admin/user_admin/Logout.aspx">log out</a></li>
@@ -75,7 +77,8 @@ export default {
   data () {
     return {
       selectedMenu: '',
-      artistName: ''
+      artistName: '',
+      artist: {}
     }
   },
   mounted () {
@@ -105,11 +108,12 @@ export default {
   },
   methods: {
     async loadData () {
-      let res = await this.$post('GetLoggedArtist')
+      let res = await this.$store.dispatch('fetchLoggedArtist')
       if (res === 'Not logged in') {
         window.location = '/admin/user_admin/login/'
       }
-      this.artistName = res
+      this.artist = res
+      this.artistName = this.artist.BlogTag
     },
     handleSelectMenu (menuname) {
       this.selectedMenu = menuname
