@@ -29,6 +29,8 @@ import '@/css/admin.css'
 import UserAdmin from './masterpages/UserAdmin.vue'
 import MainMenu from './components/MainMenu.vue'
 
+// we check the user is logged in in the main menu
+
 export default {
   components: {
     UserAdmin,

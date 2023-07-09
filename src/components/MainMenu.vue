@@ -109,8 +109,9 @@ export default {
   methods: {
     async loadData () {
       let res = await this.$store.dispatch('fetchLoggedArtist')
-      if (res === 'Not logged in') {
+      if (!res) {
         window.location = '/admin/user_admin/login/'
+        return
       }
       this.artist = res
       this.artistName = this.artist.BlogTag
