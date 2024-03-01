@@ -66,12 +66,12 @@ const routes = [
   {
     path: '/admin/user_admin/vue/sort-images',
     name: 'sort images',
-    component: () => import('../views/SortImage.vue')
+    component: () => import('../views/SortImages.vue')
   },
   {
     path: '/admin/user_admin/vue/sort-animations',
     name: 'sort animations',
-    component: () => import('../views/SortImage.vue'),
+    component: () => import('../views/SortImages.vue'),
     props: {
       anim: true
     }

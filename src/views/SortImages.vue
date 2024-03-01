@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wide-view">
     <p>Sort the items by dragging and dropping them into the correct order.</p>
 
     <div style="display:flex" v-if="artist">
@@ -20,6 +20,9 @@
         <div class="grid-button three" title="Three columns" @click="changeColumns(3)" :class="{sel: numColumns === 3}"></div>
         <div class="grid-button four" title="Four columns" @click="changeColumns(4)" :class="{sel: numColumns === 4}"></div>
       </div>
+      <div class="preview-switch">
+        <on-off-button large v-model="preview">Preview</on-off-button>
+      </div>
     </div>
     <draggable v-model="images" @change="saveOrder" class="sortable-area" :class="widthClass">
       <div class="sort-img" v-for="(image, index) in images" :key="image.Id">
@@ -32,6 +35,7 @@
 
 <script>
 import draggable from 'vuedraggable'
+import OnOffButton from '@/components/buttons/OnOffButton.vue'
 
 export default {
   props: {
@@ -39,13 +43,15 @@ export default {
     combined: Boolean
   },
   components: {
-    draggable
+    draggable,
+    OnOffButton
   },
   data () {
     return {
       images: [],
       artist: {},
-      numColumns: 4
+      numColumns: 4,
+      preview: false
     }
   },
   computed: {
@@ -111,6 +117,9 @@ export default {
 </script>
 
 <style>
+.artist-view > div.wide-view {
+  width:100vw;
+}
 .sort-img {
   position:relative;
   width:200px;
@@ -183,10 +192,10 @@ export default {
     margin-left:auto;
     margin-right:auto;
     margin-top:20px;
+    column-gap:20px;
   }
 
 .grid-buttons{
-  flex-grow:1;
   display:flex;
 }
 

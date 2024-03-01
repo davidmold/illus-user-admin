@@ -93,13 +93,17 @@ export default {
 }
 
 .artist-view {
-  max-width:1200px;
-  width:100%;
   margin-top:40px;
-  margin-left:auto;
-  margin-right:auto;
   padding:0 20px;
   padding-bottom:100px;
+  box-sizing: border-box;
+}
+
+.artist-view > div {
+  max-width:1200px;
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
   box-sizing: border-box;
 }
 </style>
